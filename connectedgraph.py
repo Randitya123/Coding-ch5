@@ -9,7 +9,7 @@ class graph:
         temp.append(vertx)
         for i in self.l1[vertx]:
             if visted[i]==False:
-                temp=self.defs(temp,i,visted)
+                temp=self.dfs(temp,i,visted)
         return temp
     #func to add undirected edge
     def edge(self,vertx1,vertx2):
@@ -18,9 +18,9 @@ class graph:
     def retrive(self):
         visited=[]
         connected=[]
-        for i in range(self.vert):
+        for i in range(self.v):
             visited.append(False)
-        for z in range(self.vert):
+        for z in range(self.v):
             if visited[z]==False:
                 temp=[]
                 connected.append(self.dfs(temp,z,visited))
@@ -28,9 +28,9 @@ class graph:
 #mainfunc
 if __name__=="__main__":
     var=graph(5)
-    var.edge(1,2)
+    var.edge(0,1)
+    var.edge(2,3)
     var.edge(3,4)
-    var.edge(4,5)
     print(var)
     #getting all the connecting variables
     connectedv=var.retrive()
